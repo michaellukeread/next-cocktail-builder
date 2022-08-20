@@ -1,27 +1,17 @@
 import { useQuery } from "@tanstack/react-query"
 
-import { summarise } from "utils"
-import {
-  Navbar,
-  Layout,
-  Card,
-  Button,
-  List,
-  ProgressiveSearch,
-} from "components"
+import { Navbar, Layout, CocktailProfile, ProgressiveSearch } from "components"
 
 const fetcher = async (name) => {
   const response = await fetch(
     `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${name}`
   )
   const data = await response.json()
-  console.debug("data", data)
-  return summarise(data.drinks[0])
+  return data.drinks[0]
 }
 
 const Cocktails = ({ query }) => {
-  console.debug("query", query)
-  const { isLoading, error, data, refetch } = useQuery(
+  const { isLoading, isFetching, error, data } = useQuery(
     ["name", query.name],
     () => fetcher(query.name),
     {
@@ -37,12 +27,10 @@ const Cocktails = ({ query }) => {
   return (
     <>
       <Navbar />
-      <Layout>
+      <Layout className="flex items-center flex-col gap-8">
         <ProgressiveSearch />
-        <section className="py-8 gap-8 w-full flex items-center justify-center flex-col">
-          <Card image={data.image} title={data.name} summary={data.method[0]} />
-          <Button onClick={refetch}>Refetch</Button>
-          <List />
+        <section className="w-full">
+          <CocktailProfile isFetching={isFetching} {...data} />
         </section>
       </Layout>
     </>
