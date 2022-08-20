@@ -1,7 +1,18 @@
 import { useQuery } from "@tanstack/react-query"
 
-import { summarise } from "utils"
-import { Navbar, Search, Layout, Card, Button, List } from "components"
+import {
+  findIngredients,
+  findMeasurements,
+  measurementsAndIngredients,
+} from "utils"
+import {
+  Navbar,
+  ProgressiveSearch,
+  Layout,
+  Card,
+  Button,
+  List,
+} from "components"
 
 const QUERY_KEY = "Random"
 
@@ -9,7 +20,7 @@ const fetcher = async () => {
   const result = await (
     await fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
   ).json()
-  return summarise(result.drinks[0])
+  return result.drinks[0]
 }
 
 const Random = () => {
@@ -22,15 +33,24 @@ const Random = () => {
   if (isLoading) return <div>Loading...</div>
   if (error) return <div>error...</div>
 
+  const ingredients = findIngredients(data)
+  const measurements = findMeasurements(data)
+  const ingredientsWithMeasurements = measurementsAndIngredients(
+    ingredients,
+    measurements
+  )
+
+  console.debug("ingredientsWithMeasurements", ingredientsWithMeasurements)
+
   return (
     <>
       <Navbar />
       <Layout>
-        <Search />
+        <ProgressiveSearch />
         <section className="py-8 gap-8 w-full flex items-center justify-center flex-col">
-          <Card image={data.image} title={data.name} summary={data.method[0]} />
+          {/* <Card image={data.image} title={data.name} /> */}
           <Button onClick={refetch}>Refetch</Button>
-          <List />
+          <Card variant="list" items={ingredientsWithMeasurements} />
         </section>
       </Layout>
     </>

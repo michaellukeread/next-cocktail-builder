@@ -1,7 +1,5 @@
 const NothingFound = () => (
-  <div className="relative cursor-default select-none py-2 px-4 text-gray-700">
-    Nothing found.
-  </div>
+  <div className="relative select-none p-4 text-xl italic">Nothing found.</div>
 )
 
 export default NothingFound

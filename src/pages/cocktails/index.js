@@ -1,7 +1,14 @@
 import { useQuery } from "@tanstack/react-query"
 
 import { summarise } from "utils"
-import { Navbar, Search, Layout, Card, Button, List } from "components"
+import {
+  Navbar,
+  Layout,
+  Card,
+  Button,
+  List,
+  ProgressiveSearch,
+} from "components"
 
 const fetcher = async (name) => {
   const response = await fetch(
@@ -31,7 +38,7 @@ const Cocktails = ({ query }) => {
     <>
       <Navbar />
       <Layout>
-        <Search />
+        <ProgressiveSearch />
         <section className="py-8 gap-8 w-full flex items-center justify-center flex-col">
           <Card image={data.image} title={data.name} summary={data.method[0]} />
           <Button onClick={refetch}>Refetch</Button>

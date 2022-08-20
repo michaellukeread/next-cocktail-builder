@@ -14,7 +14,7 @@ const ProgressiveSearch = () => {
   if (isLoading) Component = Loading
   if (!items) Component = NothingFound
 
-  return <PureProgressiveSearch items={items} {...rest} />
+  return <PureProgressiveSearch items={items} Component={Component} {...rest} />
 }
 
 export default ProgressiveSearch

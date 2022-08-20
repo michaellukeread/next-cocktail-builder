@@ -4,7 +4,7 @@ const Layout = ({ className, children }) => (
   <main
     className={classNames(
       className,
-      "container mx-auto min-h-[calc(100vh-8rem)] bg-blue-50"
+      "container mx-auto min-h-[calc(100vh-8rem)]"
     )}
   >
     {children}
