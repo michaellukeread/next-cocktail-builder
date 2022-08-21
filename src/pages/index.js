@@ -19,6 +19,11 @@ const Home = () => (
         link={{ title: "Visit here", to: "/cocktails/ingredients" }}
         className="bg-ingredients"
       />
+      <Featured
+        name="Search by Letter"
+        link={{ title: "Visit here", to: "/cocktails/byletter" }}
+        className="bg-ingredients"
+      />
     </section>
   </Layout>
 )
