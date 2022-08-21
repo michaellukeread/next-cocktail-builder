@@ -3,21 +3,21 @@ import Link from "next/link"
 import { classNames } from "utils"
 
 const Featured = ({ name, link: { title, to }, className }) => (
-  <article
-    className={classNames(
-      className,
-      "relative rounded-lg bg-white p-4 aspect-square bg-cover overflow-hidden"
-    )}
-  >
-    <div className="absolute bottom-0 left-0 p-4 flex flex-col w-full gap-4 justify-end h-2/3 bg-gradient-to-t  from-black">
-      <h3 className="text-white text-3xl font-bold">{name}</h3>
-      <Link href={to}>
-        <a className="text-white bg-gradient-to-br max-w-max from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
-          {title}
-        </a>
-      </Link>
-    </div>
-  </article>
+  <Link href={to}>
+    <a
+      className={classNames(
+        className,
+        "relative flex justify-end flex-col rounded bg-white h-96 bg-cover overflow-hidden hover:opacity-50 duration-300"
+      )}
+    >
+      {" "}
+      <div className="absolute bottom-0 left-0 p-8 flex flex-col w-full gap-4 justify-end h-2/3 bg-gradient-to-t  from-black">
+        <h3 className="text-white text-5xl font-abrilFatface tracking-wide">
+          {name}
+        </h3>
+      </div>
+    </a>
+  </Link>
 )
 
 {

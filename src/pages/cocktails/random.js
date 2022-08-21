@@ -27,17 +27,9 @@ const Random = () => {
   if (error) return <div>error...</div>
 
   return (
-    <Layout className="flex items-center flex-col gap-8">
-      <ProgressiveSearch />
-      <section className="w-full">
-        <CocktailProfile isFetching={isFetching} {...data} />
-      </section>
-
-      <Button onClick={refetch} className="inline-flex items-center gap-4">
-        Randomise Cocktail
-        <SparklesIcon className="w-5 h-5" />
-      </Button>
-    </Layout>
+    <section className="h-[calc(100vh-8.25rem)]">
+      <CocktailProfile isFetching={isFetching} onClick={refetch} {...data} />
+    </section>
   )
 }
 

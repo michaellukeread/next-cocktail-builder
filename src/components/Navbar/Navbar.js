@@ -3,7 +3,7 @@ import Link from "next/link"
 import { PuzzleIcon } from "@heroicons/react/solid"
 
 const Navbar = () => (
-  <nav className="bg-blue-700 py-4">
+  <nav className="bg-neutral-900 py-4">
     <div className="container flex flex-wrap justify-between items-center mx-auto">
       <div className="flex items-center gap-4">
         <PuzzleIcon className="text-white w-8 h-8" />

@@ -1,6 +1,6 @@
 const Ingredient = ({ ingredient, measurement }) => (
-  <li className="rounded-xl px-3 py-0.5 tracking-wide bg-blue-700 text-white">
-    {ingredient} {measurement && <>| {measurement}</>}
+  <li className="rounded-xl px-3 py-0.5 tracking-wide border border-white text-white">
+    {measurement} {ingredient}
   </li>
 )
 

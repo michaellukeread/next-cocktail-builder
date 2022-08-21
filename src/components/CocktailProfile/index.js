@@ -8,6 +8,7 @@ const CocktailProfile = ({
   strDrink,
   strDrinkThumb,
   strInstructions,
+  onClick,
   ...rest
 }) => {
   if (isFetching) return <Loading />
@@ -23,6 +24,7 @@ const CocktailProfile = ({
       strDrinkThumb={strDrinkThumb}
       method={method}
       ingredientsWithMeasurements={ingredientsWithMeasurements}
+      onClick={onClick}
     />
   )
 }

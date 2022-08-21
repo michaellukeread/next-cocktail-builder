@@ -16,7 +16,7 @@ const ProgressiveSearch = ({
     <div className="relative w-full">
       <div className="flex items-center">
         <Combobox.Input
-          className="bg-blue-100 w-full p-4 ring-blue-800 rounded border-none outline-none focus:ring-2 placeholder:text-black"
+          className="border-2 border-white bg-transparent 0 w-full px-4 py-3 rounded-xl ring-none outline-none text-white placeholder:text-white text-bold font-lato font-bold text-lg"
           displayValue={displayValue}
           onChange={onChange}
           placeholder="Find a cocktail..."

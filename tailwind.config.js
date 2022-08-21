@@ -7,10 +7,18 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        abrilFatface: ["Abril Fatface", "cursive"],
+        lato: ["Lato", "sans-serif"],
+      },
       backgroundImage: {
         random: "url('./assets/random.jpg')",
         ingredients: "url('./assets/ingredients.jpg')",
         pouplar: "url('./assets/popular.jpg')",
+        home: "url('./assets/home.jpg')",
+        cocktail1: "url('./assets/cocktail-1.jpg')",
+        cocktail2: "url('./assets/cocktail-2.jpg')",
+        cocktail3: "url('./assets/cocktail-3.jpg')",
       },
       keyframes: {
         shake: {

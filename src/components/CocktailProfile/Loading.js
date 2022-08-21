@@ -1,6 +1,6 @@
 const Loading = () => (
-  <div className="animate-pulse relative rounded-lg border border-black overflow-hidden flex">
-    <div className="-z-10 left-0 bottom-0 h-[480px] aspect-square bg-gray-500" />
+  <div className="h-full w-full animate-pulse relative rounded-lg border border-black overflow-hidden flex">
+    <div className="-z-10 left-0 bottom-0 h-full aspect-square bg-gray-500" />
     <div className="p-8 flex flex-col gap-4">
       <div className="rounded-2xl h-12 w-72 bg-gray-500" />
       <ol className="inline-flex flex-wrap gap-2">
