@@ -1,32 +1,26 @@
-import { Navbar, ProgressiveSearch, Layout, Featured, Footer } from "components"
+import { ProgressiveSearch, Layout, Featured } from "components"
 
-const Home = () => {
-  return (
-    <>
-      <Navbar />
-      <Layout className="flex flex-col items-center gap-8">
-        <ProgressiveSearch />
-        <section className="grid grid-cols-6 border border-red-500 gap-4">
-          <Featured
-            name="Popular Cocktails"
-            link={{ title: "Visit here", to: "/cocktails/popular" }}
-            className="bg-pouplar"
-          />
-          <Featured
-            name="Random Cocktail"
-            link={{ title: "Visit here", to: "/cocktails/random" }}
-            className="bg-random"
-          />
-          <Featured
-            name="Search by Ingredient"
-            link={{ title: "Visit here", to: "/cocktails/ingredients" }}
-            className="bg-ingredients"
-          />
-        </section>
-      </Layout>
-      <Footer />
-    </>
-  )
-}
+const Home = () => (
+  <Layout className="flex flex-col items-center">
+    <ProgressiveSearch />
+    <section className="pt-8 w-full grid auto-cols-fr grid-flow-col gap-8">
+      <Featured
+        name="Popular Cocktails"
+        link={{ title: "Visit here", to: "/cocktails/popular" }}
+        className="bg-pouplar"
+      />
+      <Featured
+        name="Random Cocktail"
+        link={{ title: "Visit here", to: "/cocktails/random" }}
+        className="bg-random"
+      />
+      <Featured
+        name="Search by Ingredient"
+        link={{ title: "Visit here", to: "/cocktails/ingredients" }}
+        className="bg-ingredients"
+      />
+    </section>
+  </Layout>
+)
 
 export default Home

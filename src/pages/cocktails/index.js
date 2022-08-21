@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query"
 
-import { Navbar, Layout, CocktailProfile, ProgressiveSearch } from "components"
+import { Layout, CocktailProfile, ProgressiveSearch } from "components"
 
 const fetcher = async (name) => {
   const response = await fetch(
@@ -25,15 +25,12 @@ const Cocktails = ({ query }) => {
   if (error) return <div>error...{error}</div>
 
   return (
-    <>
-      <Navbar />
-      <Layout className="flex items-center flex-col gap-8">
-        <ProgressiveSearch />
-        <section className="w-full">
-          <CocktailProfile isFetching={isFetching} {...data} />
-        </section>
-      </Layout>
-    </>
+    <Layout className="mt-8 flex items-center flex-col gap-8">
+      <ProgressiveSearch />
+      <section className="w-full">
+        <CocktailProfile isFetching={isFetching} {...data} />
+      </section>
+    </Layout>
   )
 }
 

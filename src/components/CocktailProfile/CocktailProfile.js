@@ -1,8 +1,4 @@
-const Ingredient = ({ ingredient, measurement }) => (
-  <li className="rounded-xl px-3 py-0.5 tracking-wide bg-blue-700 text-white">
-    {ingredient} {measurement && <>| {measurement}</>}
-  </li>
-)
+import Ingredient from "./Ingredient"
 
 const CocktailProfile = ({
   strDrinkThumb,
@@ -12,7 +8,7 @@ const CocktailProfile = ({
 }) => (
   <div className="relative rounded-lg border border-black overflow-hidden flex">
     <div
-      className="-z-10 left-0 bottom-0 h-[480px] bg-contain aspect-square bg-no-repeat"
+      className="-z-10 left-0 bottom-0 h-[480px] bg-contain bg-gray-500 aspect-square bg-no-repeat"
       style={{ backgroundImage: `url(${strDrinkThumb})` }}
     />
     <div className="p-8 flex flex-col gap-4">

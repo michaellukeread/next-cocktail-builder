@@ -6,7 +6,7 @@ const Featured = ({ name, link: { title, to }, className }) => (
   <article
     className={classNames(
       className,
-      "relative col-span-2 rounded-lg bg-white p-4 h-80 aspect-square bg-cover overflow-hidden"
+      "relative rounded-lg bg-white p-4 aspect-square bg-cover overflow-hidden"
     )}
   >
     <div className="absolute bottom-0 left-0 p-4 flex flex-col w-full gap-4 justify-end h-2/3 bg-gradient-to-t  from-black">

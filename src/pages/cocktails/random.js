@@ -1,13 +1,7 @@
 import { useQuery } from "@tanstack/react-query"
 import { SparklesIcon } from "@heroicons/react/solid"
 
-import {
-  Navbar,
-  ProgressiveSearch,
-  Layout,
-  Button,
-  CocktailProfile,
-} from "components"
+import { ProgressiveSearch, Layout, Button, CocktailProfile } from "components"
 
 const QUERY_KEY = "Random"
 
@@ -33,20 +27,17 @@ const Random = () => {
   if (error) return <div>error...</div>
 
   return (
-    <>
-      <Navbar />
-      <Layout className="flex items-center flex-col gap-8">
-        <ProgressiveSearch />
-        <section className="w-full">
-          <CocktailProfile isFetching={isFetching} {...data} />
-        </section>
+    <Layout className="flex items-center flex-col gap-8">
+      <ProgressiveSearch />
+      <section className="w-full">
+        <CocktailProfile isFetching={isFetching} {...data} />
+      </section>
 
-        <Button onClick={refetch} className="inline-flex items-center gap-4">
-          Random
-          <SparklesIcon className="w-5 h-5" />
-        </Button>
-      </Layout>
-    </>
+      <Button onClick={refetch} className="inline-flex items-center gap-4">
+        Randomise Cocktail
+        <SparklesIcon className="w-5 h-5" />
+      </Button>
+    </Layout>
   )
 }
 

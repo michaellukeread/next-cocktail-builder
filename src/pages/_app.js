@@ -1,4 +1,4 @@
-// import { Hydrate, QueryClientProvider } from "react-query"
+import { useState } from "react"
 import {
   Hydrate,
   QueryClient,
@@ -6,7 +6,7 @@ import {
 } from "@tanstack/react-query"
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
 
-import { useState } from "react"
+import { Navbar, Footer } from "components"
 
 import "index.css"
 
@@ -16,7 +16,9 @@ const App = ({ Component, pageProps }) => {
   return (
     <QueryClientProvider client={queryClient}>
       <Hydrate state={pageProps.dehydratedState}>
+        <Navbar />
         <Component {...pageProps} />
+        <Footer />
       </Hydrate>
       <ReactQueryDevtools initialIsOpen />
     </QueryClientProvider>
