@@ -1,4 +1,4 @@
-import { ProgressiveSearch, Featured } from "components"
+import { ProgressiveSearch, Featured, Popular } from "components"
 
 const Home = () => (
   <>
@@ -32,6 +32,9 @@ const Home = () => (
         link={{ title: "Visit here", to: "/cocktails/byletter" }}
         className="bg-cocktail3 col-span-6"
       />
+    </section>
+    <section className="p-32 bg-neutral-900 pt-8 w-full">
+      <Popular />
     </section>
   </>
 )

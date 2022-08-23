@@ -4,3 +4,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.swiper-button-prev, .swiper-button-next {
+  color: white;
+  background-color: black;
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+.swiper-button-prev:hover, .swiper-button-next:hover {
+  background-color: blue;
+}

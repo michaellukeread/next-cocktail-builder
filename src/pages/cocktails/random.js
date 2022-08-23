@@ -1,15 +1,16 @@
 import { useQuery } from "@tanstack/react-query"
-import { SparklesIcon } from "@heroicons/react/solid"
 
-import { ProgressiveSearch, Layout, Button, CocktailProfile } from "components"
+import { CocktailProfile, Spinner, Layout } from "components"
+import { API_SERVER } from "config"
 
 const QUERY_KEY = "Random"
 
 const fetcher = async () => {
-  const result = await (
-    await fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
-  ).json()
-  return result.drinks[0]
+  const response = await fetch(
+    `${API_SERVER}${process.env.NEXT_PUBLIC_API_KEY}/random.php`
+  )
+  const data = await response.json()
+  return data.drinks[0]
 }
 
 const Random = () => {
@@ -23,7 +24,12 @@ const Random = () => {
     }
   )
 
-  if (isLoading) return <div>Loading...</div>
+  if (isLoading)
+    return (
+      <Layout className="mt-8 flex items-center justify-center flex-col gap-8">
+        <Spinner />
+      </Layout>
+    )
   if (error) return <div>error...</div>
 
   return (

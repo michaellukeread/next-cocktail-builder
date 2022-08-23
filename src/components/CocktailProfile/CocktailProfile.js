@@ -12,10 +12,10 @@ const CocktailProfile = ({
 }) => (
   <div className="h-full w-full relative overflow-hidden flex">
     <div
-      className="-z-10 left-0 bottom-0 h-full bg-contain bg-gray-500 aspect-square bg-no-repeat"
+      className="-z-10 left-0 bottom-0 h-full w-[calc(100vw/2)] bg-cover bg-left bg-gray-500 bg-no-repeat"
       style={{ backgroundImage: `url(${strDrinkThumb})` }}
     />
-    <div className="p-8 flex w-full flex-col gap-4 bg-neutral-900">
+    <div className="p-8 flex w-[calc(100vw/2)] flex-col gap-4 bg-neutral-900">
       <h3 className="font-abrilFatface text-7xl tracking-wide text-white">
         {strDrink}
       </h3>

@@ -2,14 +2,14 @@ import { useQuery } from "@tanstack/react-query"
 import Link from "next/link"
 
 import { ProgressiveSearch, Layout, CocktailProfile, Spinner } from "components"
-import { ALPHABET } from "config"
+import { ALPHABET, API_SERVER } from "config"
 import { classNames } from "utils"
 
 const QUERY_KEY = "byletter"
 
 const fetcher = async (letter) => {
   const response = await fetch(
-    `https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${letter}`
+    `${API_SERVER}${process.env.NEXT_PUBLIC_API_KEY}/search.php?f=${letter}`
   )
   const data = await response.json()
 

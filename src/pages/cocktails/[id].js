@@ -3,20 +3,20 @@ import { useQuery } from "@tanstack/react-query"
 import { Layout, CocktailProfile, ProgressiveSearch } from "components"
 import { API_SERVER } from "config"
 
-const QUERY_KEY = "name"
+const QUERY_KEY = "id"
 
-const fetcher = async (name) => {
+const fetcher = async (id) => {
   const response = await fetch(
-    `${API_SERVER}${process.env.NEXT_PUBLIC_API_KEY}/search.php?s=${name}`
+    `${API_SERVER}${process.env.NEXT_PUBLIC_API_KEY}/lookup.php?i=${id}`
   )
   const data = await response.json()
   return data.drinks[0]
 }
 
-const Cocktails = ({ query }) => {
+const Id = ({ query }) => {
   const { isLoading, isFetching, error, data } = useQuery(
-    [QUERY_KEY, query.name],
-    () => fetcher(query.name),
+    [QUERY_KEY, query.id],
+    () => fetcher(query.id),
     {
       refetchOnMount: false,
       refetchOnReconnect: false,
@@ -28,15 +28,12 @@ const Cocktails = ({ query }) => {
   if (error) return <div>error...{error}</div>
 
   return (
-    <Layout className="mt-8 flex items-center flex-col gap-8">
-      <ProgressiveSearch />
-      <section className="w-full">
-        <CocktailProfile isFetching={isFetching} {...data} />
-      </section>
-    </Layout>
+    <section className="h-[calc(100vh-8.25rem)]">
+      <CocktailProfile isFetching={isFetching} {...data} />
+    </section>
   )
 }
 
-Cocktails.getInitialProps = async ({ query }) => ({ query })
+Id.getInitialProps = async ({ query }) => ({ query })
 
-export default Cocktails
+export default Id
