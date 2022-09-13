@@ -1,4 +1,3 @@
-import { useState } from "react"
 import {
   Hydrate,
   QueryClient,
@@ -10,18 +9,17 @@ import { Navbar, Footer } from "components"
 
 import "index.css"
 
-const App = ({ Component, pageProps }) => {
-  const [queryClient] = useState(() => new QueryClient())
+const queryClient = new QueryClient()
 
-  return (
-    <QueryClientProvider client={queryClient}>
-      <Hydrate state={pageProps.dehydratedState}>
-        <Navbar />
-        <Component {...pageProps} />
-        <Footer />
-      </Hydrate>
-      <ReactQueryDevtools initialIsOpen />
-    </QueryClientProvider>
-  )
-}
+const App = ({ Component, pageProps: { session, ...pageProps } }) => (
+  <QueryClientProvider client={queryClient}>
+    <Hydrate state={pageProps.dehydratedState}>
+      <Navbar />
+      <Component {...pageProps} />
+      <Footer />
+    </Hydrate>
+    <ReactQueryDevtools initialIsOpen />
+  </QueryClientProvider>
+)
+
 export default App

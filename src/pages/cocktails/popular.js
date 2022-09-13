@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query"
 import { Swiper, SwiperSlide } from "swiper/react"
 
-import { CocktailProfile, Spinner, Layout } from "components"
+import { CocktailProfile, Spinner, Layout, Card } from "components"
 import { API_SERVER } from "config"
 
 import "swiper/css"
@@ -36,21 +36,16 @@ const Popular = () => {
   if (error) return <div>error...</div>
 
   return (
-    <section className="h-[calc(100vh-8.25rem)]">
-      <div className="border border-green-500">
-        <Swiper
-          slidesPerView={4}
-          onSlideChange={() => console.log("slide change")}
-          onSwiper={(swiper) => console.log(swiper)}
-        >
-          {data.map((item, i) => (
-            <SwiperSlide key={i} className="bg-blue-500">
-              {item.strDrink}
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
-    </section>
+    <main className="bg-neutral-900">
+      <section
+        id="popular"
+        className="flex flex-col py-16 gap-8 container mx-auto "
+      >
+        {data.map((item) => (
+          <Card key={item.strDrink} variant="overview" {...item} />
+        ))}
+      </section>
+    </main>
   )
 }
 

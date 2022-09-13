@@ -1,5 +1,5 @@
 const Footer = () => (
-  <footer className="p-4 bg-black shadow md:flex md:items-center md:justify-between md:p-6">
+  <footer className="h-16 bg-black shadow md:flex md:items-center md:justify-between">
     <span className="text-sm text-white sm:text-center">
       © 2022{" "}
       <a href="https://flowbite.com/" className="hover:underline">

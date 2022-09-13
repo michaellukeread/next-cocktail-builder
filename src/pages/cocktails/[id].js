@@ -24,11 +24,11 @@ const Id = ({ query }) => {
     }
   )
 
-  if (isLoading) return <div>Loading...</div>
+  if (isLoading) return <div className="screen">Loading...</div>
   if (error) return <div>error...{error}</div>
 
   return (
-    <section className="h-[calc(100vh-8.25rem)]">
+    <section className="screen">
       <CocktailProfile isFetching={isFetching} {...data} />
     </section>
   )
