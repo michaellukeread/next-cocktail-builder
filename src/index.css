@@ -5,15 +5,28 @@
 @tailwind components;
 @tailwind utilities;
 
-.swiper-button-prev, .swiper-button-next {
-  color: white;
-  background-color: black;
-  padding: 2rem;
-  border-radius: 1rem;
+@layer base {
+  html {
+    @apply bg-dark font-lato text-light;
+  }
 }
 
-.swiper-button-prev:hover, .swiper-button-next:hover {
-  background-color: blue;
+@layer components {
+  .btn {
+    @apply text-light focus:ring-4 hover:ring-4 focus:outline-none rounded-lg text-sm px-5 py-2.5 text-center duration-300;
+  }
+
+  .primary {
+    @apply bg-primary text-light ring-secondary;
+  }
+
+  .secondary {
+    @apply bg-secondary text-light ring-tertiary;
+  }
+
+  .tertiary {
+    @apply bg-tertiary text-light;
+  }
 }
 
 @layer utilities {

@@ -1,25 +1,20 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./src/assets/**/*.js",
-    "./src/pages/**/*.js",
-    "./src/components/**/*.js",
-  ],
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
+    colors: {
+      primary: "#C0A152",
+      secondary: "#8C7948",
+      tertiary: "#6E6242",
+      light: "#F3F2EE",
+      dark: "#181815",
+      darkest: "#121210",
+    },
     extend: {
       fontFamily: {
         abrilFatface: ["Abril Fatface", "cursive"],
         lato: ["Lato", "sans-serif"],
       },
-      backgroundImage: (theme) => ({
-        random: "url('./public/random.jpg')",
-        ingredients: "url('./public/ingredients.jpg')",
-        pouplar: "url('./public/popular.jpg')",
-        home: "url('./public/home.jpg')",
-        cocktail1: "url('./public/cocktail-1.jpg')",
-        cocktail2: "url('./public/cocktail-2.jpg')",
-        cocktail3: "url('./public/cocktail-3.jpg')",
-      }),
       keyframes: {
         shake: {
           "0%": "{ transform: translate(1px, 1px) rotate(0deg) }",
@@ -34,6 +29,18 @@ module.exports = {
           "90%": "{ transform: translate(1px, 2px) rotate(0deg) }",
           "100%": "{ transform: translate(1px, -2px) rotate(-1deg) }",
         },
+      },
+      gridTemplateColumns: {
+        autofit: "repeat(auto-fit, minmax(300px, 1fr))",
+      },
+      backgroundImage: {
+        home: "url('./assets/home.jpg')",
+        random: "url('./assets/random.jpg')",
+        ingredients: "url('./assets/ingredients.jpg')",
+        pouplar: "url('./assets/popular.jpg')",
+        cocktail1: "url('./assets/cocktail-1.jpg')",
+        cocktail2: "url('./assets/cocktail-2.jpg')",
+        cocktail3: "url('./assets/cocktail-3.jpg')",
       },
       animation: {
         shake: "shake 0.5s linear infinite",
