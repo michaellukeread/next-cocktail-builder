@@ -1,5 +1,5 @@
 import { dehydrate } from "@tanstack/react-query"
-import { NextPage } from "next"
+import { NextPage, GetServerSideProps } from "next"
 
 import { SquareCard } from "components"
 import { queryClient } from "lib/queryClient"
@@ -10,9 +10,9 @@ import { cocktail } from "types/cocktail"
 
 const filter = "category"
 
-export const getServerSideProps = async ({ query }) => {
+export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   await queryClient.prefetchQuery([FILTER_BY_KEY, filter, query.category], () =>
-    useFilterBy(filter, query.category)
+    useFilterBy(filter, query.category as string)
   )
 
   return {
