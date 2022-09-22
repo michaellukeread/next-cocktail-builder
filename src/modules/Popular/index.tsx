@@ -1,7 +1,7 @@
 import React from "react"
 
 import { Spinner, Carousel } from "components"
-import { usePopular } from "./hooks"
+import { usePopular } from "features/cocktails/hooks"
 
 import "swiper/css"
 import "swiper/css/pagination"

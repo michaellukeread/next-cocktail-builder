@@ -3,12 +3,17 @@ import { dehydrate } from "@tanstack/react-query"
 import { SquareCard } from "components"
 import { queryClient } from "lib/queryClient"
 
-import { useLatest } from "features/cocktails/hooks"
-import { LATEST_KEY } from "features/cocktails/config"
+import { useFilterBy } from "features/cocktails/hooks"
+import { FILTER_BY_KEY } from "features/cocktails/config"
 import { cocktail } from "types/cocktail"
 
+const filter = "alcoholic"
+const item = "Alcoholic"
+
 export const getStaticProps = async () => {
-  await queryClient.prefetchQuery([LATEST_KEY], useLatest)
+  await queryClient.prefetchQuery([FILTER_BY_KEY, filter, item], () =>
+    useFilterBy(filter, item)
+  )
 
   return {
     props: {
@@ -17,18 +22,18 @@ export const getStaticProps = async () => {
   }
 }
 
-const Latest = () => {
-  const { data } = useLatest()
+const Alcoholic = () => {
+  const { data } = useFilterBy(filter, item)
 
   return (
     <section
-      id={LATEST_KEY}
+      id={FILTER_BY_KEY}
       className="grid grid-cols-autofit gap-8 container mx-auto"
     >
       {data.map(({ idDrink, strDrink, strDrinkThumb }: cocktail) => (
         <SquareCard
           key={idDrink}
-          to={idDrink}
+          to={`/cocktails/${idDrink}`}
           title={strDrink}
           image={strDrinkThumb}
         />
@@ -37,4 +42,4 @@ const Latest = () => {
   )
 }
 
-export default Latest
+export default Alcoholic

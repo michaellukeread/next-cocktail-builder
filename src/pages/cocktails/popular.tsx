@@ -3,13 +3,12 @@ import { dehydrate } from "@tanstack/react-query"
 import { SquareCard } from "components"
 import { queryClient } from "lib/queryClient"
 
-//TODO: This could be moved to a nicer location
-import { usePopular } from "modules/Popular/hooks"
-import { KEY } from "modules/Popular/config"
+import { usePopular } from "features/cocktails/hooks"
+import { POPULAR_KEY } from "features/cocktails/config"
 import { cocktail } from "types/cocktail"
 
 export const getStaticProps = async () => {
-  await queryClient.prefetchQuery([KEY], usePopular)
+  await queryClient.prefetchQuery([POPULAR_KEY], usePopular)
 
   return {
     props: {
@@ -23,7 +22,7 @@ const Popular = () => {
 
   return (
     <section
-      id="popular"
+      id={POPULAR_KEY}
       className="grid grid-cols-autofit gap-8 container mx-auto"
     >
       {data.map(({ idDrink, strDrink, strDrinkThumb }: cocktail) => (

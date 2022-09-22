@@ -2,7 +2,7 @@ import React from "react"
 
 import { Spinner, Carousel } from "components"
 
-import { useLatest } from "./hooks"
+import { useLatest } from "features/cocktails/hooks"
 
 const Latest = () => {
   const { isLoading, isFetching, error, data } = useLatest()
