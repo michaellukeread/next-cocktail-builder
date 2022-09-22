@@ -11,19 +11,29 @@ const FeaturedCards = [
     className: "bg-cocktail1",
   },
   {
-    name: "Random Cocktails",
-    to: "/cocktails/random",
+    name: "Latest Cocktails",
+    to: "/cocktails/latest",
     className: "bg-cocktail2",
   },
   {
-    name: "Search By Ingredients",
-    to: "/cocktails/ingredients",
+    name: "Random Cocktail",
+    to: "/cocktails/random",
     className: "bg-cocktail3",
   },
   {
-    name: "Search By Letter",
-    to: "/cocktails/byletter",
+    name: "Filter By Glass",
+    to: "/cocktails/filter/glass",
     className: "bg-cocktail3",
+  },
+  {
+    name: "Filter By Category",
+    to: "/cocktails/filter/category",
+    className: "bg-cocktail2",
+  },
+  {
+    name: "Filter By Ingredient",
+    to: "/cocktails/filter/ingredient",
+    className: "bg-cocktail1",
   },
 ]
 
