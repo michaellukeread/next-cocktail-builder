@@ -5,6 +5,11 @@ const nextConfig = {
   images: {
     domains: ["www.thecocktaildb.com", "images.unsplash.com"],
   },
+  experimental: {
+    images: {
+      allowFutureImage: true,
+    },
+  },
 }
 
 module.exports = nextConfig

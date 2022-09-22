@@ -5,6 +5,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @layer base {
   html {
     @apply bg-dark font-lato text-light;
@@ -33,4 +34,8 @@
   .screen {
     @apply h-[calc(100vh-8rem)];
   }
+}
+
+.swiper-pagination-bullet {
+  @apply bg-light;
 }

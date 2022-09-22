@@ -5,6 +5,8 @@ import Overview from "./Overview"
 import Square from "./Square"
 import Featured from "./Featured"
 
+export { Basic as BasicCard } from "./Basic"
+
 const VARIANTS = {
   basic: Basic,
   list: List,

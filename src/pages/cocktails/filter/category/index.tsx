@@ -1,10 +1,10 @@
 import { dehydrate } from "@tanstack/react-query"
-import Link from "next/link"
 
 import { queryClient } from "lib/queryClient"
 import { useListBy } from "features/cocktails/hooks"
 import { LIST_BY_KEY } from "features/cocktails/config"
 import { cocktail } from "types/cocktail"
+import { BasicCard } from "components/Cards"
 
 const filter = "category"
 
@@ -29,12 +29,12 @@ const Index = () => {
       className="grid grid-cols-autofit gap-8 container mx-auto"
     >
       {data.map(({ strCategory }: cocktail) => (
-        <Link
+        <BasicCard
           key={strCategory}
-          href={`/cocktails/filter/${filter}/${strCategory}`}
+          to={`/cocktails/filter/${filter}/${strCategory}`}
         >
-          <a>{strCategory}</a>
-        </Link>
+          {strCategory}
+        </BasicCard>
       ))}
     </section>
   )
